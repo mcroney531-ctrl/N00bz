@@ -606,11 +606,14 @@
     position: absolute; inset: 0; z-index: 50;
     background: rgba(0,0,0,0.55);
     display: flex; align-items: center; justify-content: center;
+    padding: 48px 60px;
     opacity: 1; transition: opacity .2s ease;
   }
   .ai-prompt-overlay.hidden { opacity: 0; pointer-events: none; }
   .ai-prompt-card {
-    width: 480px;
+    width: 760px;
+    max-height: 100%;
+    overflow-y: auto;
     border-radius: 18px;
     padding: 28px 30px 24px;
   }
