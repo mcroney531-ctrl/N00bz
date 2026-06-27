@@ -637,7 +637,7 @@
   /* ── in-slide "step inside" hotspots (distinct from map hotspots) ── */
   .scene-hotspot {
     position: absolute;
-    width: 64px; height: 64px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     background: rgba(201,166,79,0.18);
     border: 2px solid rgba(232,220,200,0.85);
@@ -649,10 +649,10 @@
     z-index: 4;
   }
   .scene-hotspot:hover { transform: translate(-50%, -50%) scale(1.12); background: rgba(201,166,79,0.34); }
-  .scene-hotspot .ring { position: absolute; inset: -10px; border-radius: 50%; border: 1.5px solid rgba(232,220,200,0.55); animation: pulse 2.4s ease-in-out infinite; }
+  .scene-hotspot .ring { position: absolute; inset: -14px; border-radius: 50%; border: 1.5px solid rgba(232,220,200,0.55); animation: pulse 2.4s ease-in-out infinite; }
   .scene-hotspot-label {
-    position: absolute; top: 50%; right: 84px; transform: translateY(-50%);
-    white-space: nowrap; font-size: 14px; font-weight: 700; color: #4a3318;
+    position: absolute; top: 50%; right: 112px; transform: translateY(-50%);
+    white-space: nowrap; font-size: 16px; font-weight: 700; color: #4a3318;
     background-image:
       repeating-linear-gradient(0deg, rgba(110,78,36,0.16) 0px, rgba(110,78,36,0.16) 1px, transparent 1px, transparent 5px),
       linear-gradient(180deg, #f2e0b0 0%, #e3c488 38%, #cfa869 72%, #b89257 100%);
@@ -1173,7 +1173,7 @@
           </div>
         </div>
         <div class="fullbleed-text-col">
-          <div class="what-box">Skeuomorphism makes digital elements <strong>mimic real-world objects</strong> — leather textures, stitching, glossy buttons that look physically pressable. I like it for moments where the metaphor genuinely helps someone understand what to do, like a toggle switch that actually looks like a switch. I don't reach for full skeuomorphism often, but I'll borrow small skeuomorphic cues — a drop shadow that implies "this is a button" — even inside a flatter overall design.</div>
+          <div class="what-box">Skeuomorphism makes digital elements <strong>mimic real-world objects</strong> — leather textures, stitching, glossy buttons that look physically pressable. I like it for moments where the metaphor genuinely helps someone understand what to do, like a toggle switch that actually looks like a switch. I don't reach for full skeuomorphism often, but I'll borrow skeuomorphic cues — particularly for computer screens where familiar affordances help learners navigate step-by-step tutorials and guided interactions without stopping to wonder what's clickable.</div>
           <div class="limitations-strip">
             <div class="tag">Limitations</div>
             <div class="text">Full skeuomorphism ages badly and gets visually heavy fast — every added texture is more weight on the page, and it can read as dated or kitschy within a couple years rather than aging like a classic.</div>
