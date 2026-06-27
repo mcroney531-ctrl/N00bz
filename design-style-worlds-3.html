@@ -1376,7 +1376,7 @@ Endless glass-and-crystal civilization fading into the horizon above an ocean of
         </div>
         <div class="nav-row">
           <button class="nav-btn" id="btn-back-brut">← Back</button>
-          <button class="nav-btn" id="btn-next-brut" style="visibility:hidden;">Next →</button>
+          <button class="nav-btn" id="btn-next-brut">Next →</button>
         </div>
       </div>
     </div>
@@ -1643,7 +1643,8 @@ function wireSequenceNav(suffix, index) {
   }
   if (nextBtn) {
     nextBtn.addEventListener("click", function () {
-      if (index < screenOrder.length - 1) showScreenWithTransition(screenOrder[index + 1], "next");
+      var nextIndex = (index + 1) % screenOrder.length;
+      showScreenWithTransition(screenOrder[nextIndex], "next");
     });
   }
 }
