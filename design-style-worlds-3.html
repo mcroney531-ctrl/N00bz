@@ -1439,6 +1439,9 @@ for (var ap = 0; ap < aiPromptBtns.length; ap++) {
     var screen = this.closest(".screen");
     var overlay = screen ? screen.querySelector(".ai-prompt-overlay") : null;
     if (overlay) overlay.classList.remove("hidden");
+    // hide any scene hotspots in this screen so they don't bleed through
+    var sceneHotspots = screen ? screen.querySelectorAll(".scene-hotspot") : [];
+    for (var sh = 0; sh < sceneHotspots.length; sh++) sceneHotspots[sh].style.visibility = "hidden";
   });
 }
 var aiPromptOks = document.querySelectorAll(".ai-prompt-ok");
@@ -1446,6 +1449,9 @@ for (var apo = 0; apo < aiPromptOks.length; apo++) {
   aiPromptOks[apo].addEventListener("click", function () {
     var overlay = this.closest(".ai-prompt-overlay");
     if (overlay) overlay.classList.add("hidden");
+    var screen = this.closest(".screen");
+    var sceneHotspots = screen ? screen.querySelectorAll(".scene-hotspot") : [];
+    for (var sh = 0; sh < sceneHotspots.length; sh++) sceneHotspots[sh].style.visibility = "visible";
   });
 }
 
