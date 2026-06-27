@@ -977,6 +977,21 @@
     transform: translateY(0);
   }
 
+
+  /* ════════════════════════════════════════
+     WORLD-TO-WORLD SLIDE TRANSITIONS
+     ════════════════════════════════════════ */
+  @keyframes enter-from-right {
+    from { opacity: 0; transform: translateX(55px); }
+    to   { opacity: 1; transform: translateX(0);    }
+  }
+  @keyframes enter-from-left {
+    from { opacity: 0; transform: translateX(-55px); }
+    to   { opacity: 1; transform: translateX(0);     }
+  }
+  .screen-enter-right { animation: enter-from-right 0.38s cubic-bezier(0.25, 0, 0.3, 1) forwards; }
+  .screen-enter-left  { animation: enter-from-left  0.38s cubic-bezier(0.25, 0, 0.3, 1) forwards; }
+
 </style>
 </head>
 <body>
@@ -1595,17 +1610,28 @@ window.addEventListener("touchend", stopAllRinging);
 document.addEventListener("visibilitychange", function () { if (document.hidden) stopAllRinging(); });
 
 /* ── linear next/back within the 6 worlds ── */
+function showScreenWithTransition(id, direction) {
+  showScreen(id);
+  var el = document.getElementById(id);
+  var cls = direction === "next" ? "screen-enter-right" : "screen-enter-left";
+  el.classList.add(cls);
+  el.addEventListener("animationend", function handler() {
+    el.classList.remove(cls);
+    el.removeEventListener("animationend", handler);
+  });
+}
+
 function wireSequenceNav(suffix, index) {
   var backBtn = document.getElementById("btn-back-" + suffix);
   var nextBtn = document.getElementById("btn-next-" + suffix);
   if (backBtn) {
     backBtn.addEventListener("click", function () {
-      if (index > 0) showScreen(screenOrder[index - 1]);
+      if (index > 0) showScreenWithTransition(screenOrder[index - 1], "back");
     });
   }
   if (nextBtn) {
     nextBtn.addEventListener("click", function () {
-      if (index < screenOrder.length - 1) showScreen(screenOrder[index + 1]);
+      if (index < screenOrder.length - 1) showScreenWithTransition(screenOrder[index + 1], "next");
     });
   }
 }
